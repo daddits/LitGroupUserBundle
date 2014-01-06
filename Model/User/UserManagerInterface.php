@@ -14,6 +14,8 @@ namespace LitGroup\Bundle\UserBundle\Model\User;
  * UserManagerInterface
  *
  * @author Roman Shamritskiy <roman@litgroup.ru>
+ *
+ * @api
  */
 interface UserManagerInterface
 {
@@ -68,4 +70,11 @@ interface UserManagerInterface
      * @return UserInterface|null
      */
     public function findUserBy(array $criteria);
+
+    /**
+     * Returns FCN of the User class.
+     *
+     * @return string
+     */
+    public function getUserClass();
 } 

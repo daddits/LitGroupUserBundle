@@ -14,6 +14,8 @@ namespace LitGroup\Bundle\UserBundle\Model\User;
  * NamedUserManagerInterface
  *
  * @author Roman Shamritskiy <roman@litgroup.ru>
+ *
+ * @api
  */
 interface NamedUserManagerInterface
 {

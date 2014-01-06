@@ -16,6 +16,8 @@ use Symfony\Component\Security\Core\User\UserInterface as SecurityUserInterface;
  * UserInterface
  *
  * @author Roman Shamritskiy <roman@litgroup.ru>
+ *
+ * @api
  */
 interface UserInterface extends SecurityUserInterface
 {

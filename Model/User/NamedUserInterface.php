@@ -16,6 +16,8 @@ namespace LitGroup\Bundle\UserBundle\Model\User;
  * Interface provides username support for user.
  *
  * @author Roman Shamritskiy <roman@litgroup.ru>
+ *
+ * @api
  */
 interface NamedUserInterface extends UserInterface
 {
