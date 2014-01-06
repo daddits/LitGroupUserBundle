@@ -19,7 +19,7 @@ use Symfony\Component\Security\Core\User\UserInterface as SecurityUserInterface;
  *
  * @api
  */
-interface UserInterface extends SecurityUserInterface
+interface UserInterface extends SecurityUserInterface, \Serializable
 {
     /**
      * Returns user's id in a storage.
