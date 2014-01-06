@@ -20,6 +20,13 @@ use Symfony\Component\Security\Core\User\UserInterface as SecurityUserInterface;
 interface UserInterface extends SecurityUserInterface
 {
     /**
+     * Returns user's id in a storage.
+     *
+     * @return mixed
+     */
+    public function getId();
+
+    /**
      * Sets user's email.
      *
      * @param string $email
