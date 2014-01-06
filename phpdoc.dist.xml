@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdoc>
+
+    <title>LitGroup UserBundle</title>
+
+    <parser>
+        <target>build/apidoc</target>
+        <markers>
+            <item>TODO</item>
+            <item>FIXME</item>
+        </markers>
+        <extensions>
+            <extension>php</extension>
+        </extensions>
+    </parser>
+
+    <!--<transformer>-->
+        <!--<target>build/apidoc</target>-->
+    <!--</transformer>-->
+
+    <transformer>
+        <target>build/apidoc</target>
+        <external-class-documentation>
+            <prefix>Symfony</prefix>
+            <uri>http://api.symfony.com/?q={CLASS}</uri>
+        </external-class-documentation>
+    </transformer>
+
+    <transformations>
+        <template name="responsive-twig" />
+    </transformations>
+
+    <files>
+        <directory>./</directory>
+        <ignore>Resources/*</ignore>
+        <ignore>Tests/*</ignore>
+        <ignore>build/*</ignore>
+        <ignore>vendor/*</ignore>
+    </files>
+</phpdoc>
