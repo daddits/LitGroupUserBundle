@@ -10,6 +10,8 @@
 
 namespace LitGroup\Bundle\UserBundle\Tests;
 
+use ReflectionObject;
+
 /**
  * TestCase
  *
@@ -32,4 +34,30 @@ class TestCase extends \PHPUnit_Framework_TestCase
     {
         return $this->getMockForAbstractClass('LitGroup\Bundle\UserBundle\Model\User\NamedUserInterface');
     }
+
+    /**
+     * Set storage primary key for model.
+     *
+     * Models do not have setId() method.
+     * Therefore ID value set through the reflection.
+     *
+     * @param object $model
+     * @param $value
+     *
+     * @throws \LogicException
+     */
+    protected function setModelId($model, $value)
+    {
+        if (!is_object($model)) {
+            throw new \LogicException('$model should be an object.');
+        }
+        $objectReflection = new ReflectionObject($model);
+        if (!$objectReflection->hasProperty('id')) {
+            throw new \LogicException(sprintf('Class object "%s" does not have an "id" property.', get_class($model)));
+        }
+        $propertyReflection = $objectReflection->getProperty('id');
+        $propertyReflection->setAccessible(true);
+        $propertyReflection->setValue($model, $value);
+    }
+
 } 

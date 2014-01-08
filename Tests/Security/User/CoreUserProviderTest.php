@@ -52,6 +52,7 @@ class CoreUserProviderTest extends TestCase
     {
         return [
             ['IteratorIterator', 'IteratorIterator', true],  // The same class
+            // TODO: This test fails on HHVM 2.3.2:
             ['IteratorIterator', 'AppendIterator', true],    // Subclass
             ['IteratorIterator', 'DateTime', false],         // Different class
         ];

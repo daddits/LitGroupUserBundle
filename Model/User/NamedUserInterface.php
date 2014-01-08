@@ -34,7 +34,7 @@ interface NamedUserInterface extends UserInterface
      * Sets canonical username.
      *
      * @param string $username
-     * 
+     *
      * @return self
      */
     public function setUsernameCanonical($username);
