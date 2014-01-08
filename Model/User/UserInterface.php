@@ -45,6 +45,22 @@ interface UserInterface extends SecurityUserInterface, \Serializable
     public function getEmail();
 
     /**
+     * Sets canonical email.
+     *
+     * @param string $email
+     *
+     * @return self
+     */
+    public function setEmailCanonical($email);
+
+    /**
+     * Returns canonical email.
+     *
+     * @return string
+     */
+    public function getEmailCanonical();
+
+    /**
      * Sets encoded password.
      *
      * @param string $password
