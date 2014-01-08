@@ -29,4 +29,20 @@ interface NamedUserInterface extends UserInterface
      * @return self
      */
     public function setUsername($username);
-} 
+
+    /**
+     * Sets canonical username.
+     *
+     * @param string $username
+     * 
+     * @return self
+     */
+    public function setUsernameCanonical($username);
+
+    /**
+     * Returns canonical username.
+     *
+     * @return string
+     */
+    public function getUsernameCanonical();
+}
