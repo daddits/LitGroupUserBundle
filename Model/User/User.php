@@ -25,27 +25,37 @@ abstract class User implements UserInterface
     protected $id;
 
     /**
+     * User's email.
+     *
      * @var string
      */
     protected $email;
 
     /**
+     * Canonical email.
+     *
      * @var string
      */
     protected $emailCanonical;
 
     /**
+     * Encrypted password.
+     *
      * @var string
      */
     protected $password;
 
     /**
+     * Salt for password encryption.
+     *
      * @var string
      */
     protected $salt;
 
     /**
-     * Plain password should not be mapped for storage.
+     * Plain password.
+     *
+     * Should not be mapped for storage.
      *
      * @var string
      */
@@ -63,7 +73,7 @@ abstract class User implements UserInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function getId()
     {
@@ -71,7 +81,7 @@ abstract class User implements UserInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function setEmail($email)
     {
@@ -81,7 +91,7 @@ abstract class User implements UserInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function getEmail()
     {
@@ -89,7 +99,7 @@ abstract class User implements UserInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function setEmailCanonical($email)
     {
@@ -99,7 +109,7 @@ abstract class User implements UserInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function getEmailCanonical()
     {
@@ -107,7 +117,7 @@ abstract class User implements UserInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function getUsername()
     {
@@ -115,7 +125,7 @@ abstract class User implements UserInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function setPlainPassword($plainPassword)
     {
@@ -125,7 +135,7 @@ abstract class User implements UserInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function getPlainPassword()
     {
@@ -133,7 +143,7 @@ abstract class User implements UserInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function setPassword($password)
     {
@@ -143,7 +153,7 @@ abstract class User implements UserInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function getPassword()
     {
@@ -151,7 +161,7 @@ abstract class User implements UserInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function getSalt()
     {
@@ -159,7 +169,7 @@ abstract class User implements UserInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function getRoles()
     {
@@ -167,7 +177,7 @@ abstract class User implements UserInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function eraseCredentials()
     {
@@ -175,7 +185,7 @@ abstract class User implements UserInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function serialize()
     {
@@ -189,7 +199,7 @@ abstract class User implements UserInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function unserialize($serialized)
     {

@@ -21,7 +21,7 @@ namespace LitGroup\Bundle\UserBundle\Security\User;
 class EmailUserProvider extends CoreUserProvider
 {
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     protected function doLoadUserByUsername($username)
     {

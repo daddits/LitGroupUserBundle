@@ -18,17 +18,22 @@ namespace LitGroup\Bundle\UserBundle\Model\User;
 abstract class NamedUser extends User implements NamedUserInterface
 {
     /**
+     * Username.
+     *
      * @var string
      */
     protected $username;
 
     /**
+     * Canonical username.
+     *
      * @var string
      */
     protected $usernameCanonical;
 
+
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function setUsername($username)
     {
@@ -38,7 +43,7 @@ abstract class NamedUser extends User implements NamedUserInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function getUsername()
     {
@@ -46,7 +51,7 @@ abstract class NamedUser extends User implements NamedUserInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function setUsernameCanonical($username)
     {
@@ -56,7 +61,7 @@ abstract class NamedUser extends User implements NamedUserInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function getUsernameCanonical()
     {
@@ -64,7 +69,7 @@ abstract class NamedUser extends User implements NamedUserInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function serialize()
     {
@@ -80,7 +85,7 @@ abstract class NamedUser extends User implements NamedUserInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function unserialize($serialized)
     {
