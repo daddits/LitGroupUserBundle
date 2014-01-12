@@ -17,7 +17,7 @@ namespace LitGroup\Bundle\UserBundle\Model\User;
  *
  * @api
  */
-interface NamedUserManagerInterface
+interface NamedUserManagerInterface extends UserManagerInterface
 {
     /**
      * Finds user by username.
@@ -25,4 +25,13 @@ interface NamedUserManagerInterface
      * @return NamedUserInterface|null
      */
     public function findUserByUsername();
+
+    /**
+     * Finds user by username or email.
+     *
+     * @param string $usernameOrEmail
+     *
+     * @return NamedUserInterface|null
+     */
+    public function findUserByUsernameOrEmail($usernameOrEmail);
 } 
