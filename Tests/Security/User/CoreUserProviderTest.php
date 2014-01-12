@@ -51,10 +51,12 @@ class CoreUserProviderTest extends TestCase
     public function getSupportsClassTests()
     {
         return [
-            ['IteratorIterator', 'IteratorIterator', true],  // The same class
-            // TODO: This test fails on HHVM 2.3.2:
-            ['IteratorIterator', 'AppendIterator', true],    // Subclass
-            ['IteratorIterator', 'DateTime', false],         // Different class
+            // The same class:
+            ['LitGroup\Bundle\UserBundle\Model\User\User', 'LitGroup\Bundle\UserBundle\Model\User\User', true],
+            // Subclass:
+            ['LitGroup\Bundle\UserBundle\Model\User\User', 'LitGroup\Bundle\UserBundle\Model\User\NamedUser', true],
+            // Different class:
+            ['LitGroup\Bundle\UserBundle\Model\User\User', 'DateTime', false],
         ];
     }
 
