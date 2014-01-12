@@ -1,7 +1,7 @@
 LitGroup UserBundle [![travis-status-img]][travis-page]
 ===================
 
-
+[![knpbundles.com](http://knpbundles.com/LitGroup/LitGroupUserBundle/badge-short)](http://knpbundles.com/LitGroup/LitGroupUserBundle)
 
 
 
