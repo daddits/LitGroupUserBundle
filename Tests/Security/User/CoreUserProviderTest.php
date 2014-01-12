@@ -15,23 +15,12 @@ use LitGroup\Bundle\UserBundle\Model\User\UserManagerInterface;
 use LitGroup\Bundle\UserBundle\Security\User\CoreUserProvider;
 use LitGroup\Bundle\UserBundle\Tests\TestCase;
 
-class CoreUserProviderTest extends TestCase
+class CoreUserProviderTest extends UserProviderTestCase
 {
-    /**
-     * @var UserManagerInterface
-     */
-    private $userManager;
-
-    /**
-     * @var CoreUserProvider
-     */
-    private $userProvider;
-
 
     protected function setUp()
     {
         parent::setUp();
-        $this->userManager  = $this->getMockForAbstractClass('LitGroup\Bundle\UserBundle\Model\User\UserManagerInterface');
         $this->userProvider =
             $this
                 ->getMockBuilder('LitGroup\Bundle\UserBundle\Security\User\CoreUserProvider')
@@ -39,13 +28,6 @@ class CoreUserProviderTest extends TestCase
                 ->setConstructorArgs([$this->userManager])
                 ->getMockForAbstractClass()
         ;
-    }
-
-    protected function tearDown()
-    {
-        $this->userManager  = null;
-        $this->userProvider = null;
-        parent::tearDown();
     }
 
     public function getSupportsClassTests()
