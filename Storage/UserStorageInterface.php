@@ -8,24 +8,16 @@
  * file that was distributed with this source code.
  */
 
-namespace LitGroup\Bundle\UserBundle\Model\User;
+namespace LitGroup\Bundle\UserBundle\Storage;
+use LitGroup\Bundle\UserBundle\Model\User\UserInterface;
 
 /**
- * UserManagerInterface
+ * UserStorageInterface
  *
  * @author Roman Shamritskiy <roman@litgroup.ru>
- *
- * @api
  */
-interface UserManagerInterface
+interface UserStorageInterface
 {
-    /**
-     * Creates empty user instance.
-     *
-     * @return UserInterface
-     */
-    public function createUser();
-
     /**
      * Saves user in the storage.
      *
@@ -47,20 +39,11 @@ interface UserManagerInterface
     /**
      * Finds user by ID.
      *
-     * @param mixed $id
+     * @param integer $id
      *
      * @return UserInterface|null
      */
     public function findUserById($id);
-
-    /**
-     * Finds user by email.
-     *
-     * @param string $email
-     *
-     * @return UserInterface|null
-     */
-    public function findUserByEmail($email);
 
     /**
      * Finds user by criteria.
@@ -71,17 +54,4 @@ interface UserManagerInterface
      */
     public function findUserBy(array $criteria);
 
-    /**
-     * Returns FCN of the User class.
-     *
-     * @return string
-     */
-    public function getUserClass();
-
-    /**
-     * Updates canonical (normalized) fields.
-     *
-     * @param UserInterface $user
-     */
-    public function updateCanonicalFields(UserInterface $user);
 } 

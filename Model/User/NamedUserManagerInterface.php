@@ -22,9 +22,11 @@ interface NamedUserManagerInterface extends UserManagerInterface
     /**
      * Finds user by username.
      *
+     * @param string $username
+     *
      * @return NamedUserInterface|null
      */
-    public function findUserByUsername();
+    public function findUserByUsername($username);
 
     /**
      * Finds user by username or email.
