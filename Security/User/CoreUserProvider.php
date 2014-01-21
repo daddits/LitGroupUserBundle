@@ -16,7 +16,7 @@ use Symfony\Component\Security\Core\User\UserInterface as SecurityUserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 
 use LitGroup\Bundle\UserBundle\Model\User\UserInterface;
-use LitGroup\Bundle\UserBundle\Model\User\UserManagerInterface;
+use LitGroup\Bundle\UserBundle\Service\User\UserServiceInterface;
 
 /**
  * CoreUserProvider.
@@ -30,19 +30,19 @@ abstract class CoreUserProvider implements UserProviderInterface
     /**
      * User manager instance.
      *
-     * @var UserManagerInterface
+     * @var UserServiceInterface
      */
-    private $userManager;
+    private $userService;
 
 
     /**
      * Constructor.
      *
-     * @param UserManagerInterface $userManager
+     * @param UserServiceInterface $userService
      */
-    public function __construct(UserManagerInterface $userManager)
+    public function __construct(UserServiceInterface $userService)
     {
-        $this->userManager = $userManager;
+        $this->userService = $userService;
     }
 
     /**
@@ -113,11 +113,11 @@ abstract class CoreUserProvider implements UserProviderInterface
     /**
      * Returns UserManager instance.
      *
-     * @return UserManagerInterface
+     * @return UserServiceInterface
      */
     protected function getUserManager()
     {
-        return $this->userManager;
+        return $this->userService;
     }
 
     /**

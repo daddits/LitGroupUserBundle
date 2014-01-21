@@ -17,15 +17,15 @@ class UsernameUserProviderTest extends UserProviderTestCase
 
     protected function setUp()
     {
-        $this->userManager  = $this->getMockForAbstractClass('LitGroup\Bundle\UserBundle\Model\User\NamedUserManagerInterface');
-        $this->userProvider = new UsernameUserProvider($this->userManager);
+        $this->userService  = $this->getMockForAbstractClass('LitGroup\Bundle\UserBundle\Service\User\NamedUserServiceInterface');
+        $this->userProvider = new UsernameUserProvider($this->userService);
     }
 
     public function testLoadUserByUserName()
     {
         $user     = $this->getMockForUserInterface();
         $provider = $this->userProvider;
-        $manager  = $this->userManager;
+        $manager  = $this->userService;
 
         $manager
             ->expects($this->once())

@@ -11,20 +11,20 @@
 namespace LitGroup\Bundle\UserBundle\Tests\Model\User;
 
 
-use LitGroup\Bundle\UserBundle\Model\User\NamedUserManager;
+use LitGroup\Bundle\UserBundle\Service\User\NamedUserService;
 use LitGroup\Bundle\UserBundle\Storage\UserStorageInterface;
 use LitGroup\Bundle\UserBundle\Tests\TestCase;
 use LitGroup\Bundle\UserBundle\Util\Normalizer\EmailNormalizerInterface;
 use LitGroup\Bundle\UserBundle\Util\Normalizer\UsernameNormalizerInterface;
 
-class NamedUserManagerTest extends TestCase
+class NamedUserServiceTest extends TestCase
 {
 
 
     /**
      * @var NamedUserManager
      */
-    protected $userManager;
+    protected $userService;
 
     /**
      * @var UserStorageInterface
@@ -58,8 +58,8 @@ class NamedUserManagerTest extends TestCase
             = $this->getMockForAbstractClass('LitGroup\Bundle\UserBundle\Util\Normalizer\EmailNormalizerInterface');
         $this->usernameNormalizer
             = $this->getMockForAbstractClass('LitGroup\Bundle\UserBundle\Util\Normalizer\UsernameNormalizerInterface');
-        $this->userManager
-            = new NamedUserManager($this->userStorage, $this->userClass, $this->emailNormalizer, $this->usernameNormalizer);
+        $this->userService
+            = new NamedUserService($this->userStorage, $this->userClass, $this->emailNormalizer, $this->usernameNormalizer);
     }
 
     protected function tearDown()
@@ -69,12 +69,12 @@ class NamedUserManagerTest extends TestCase
         $this->userClass          = null;
         $this->emailNormalizer    = null;
         $this->usernameNormalizer = null;
-        $this->userManager        = null;
+        $this->userService        = null;
     }
 
     public function testUpdateCanonicalFields()
     {
-        $manager            = $this->userManager;
+        $manager            = $this->userService;
         $emailNormalizer    = $this->emailNormalizer;
         $usernameNormalizer = $this->usernameNormalizer;
         $user               = $this->getMockForNamedUserInterface();
@@ -119,7 +119,7 @@ class NamedUserManagerTest extends TestCase
 
     public function testFindUserByUsername()
     {
-        $manager            = $this->userManager;
+        $manager            = $this->userService;
         $storage            = $this->userStorage;
         $usernameNormalizer = $this->usernameNormalizer;
         $user               = $this->getMockForNamedUserInterface();
@@ -148,7 +148,7 @@ class NamedUserManagerTest extends TestCase
 
     public function testFindUserByUsernameOrEmailWithUsername()
     {
-        $manager            = $this->userManager;
+        $manager            = $this->userService;
         $storage            = $this->userStorage;
         $usernameNormalizer = $this->usernameNormalizer;
         $user               = $this->getMockForNamedUserInterface();
@@ -177,7 +177,7 @@ class NamedUserManagerTest extends TestCase
 
     public function testFindUserByUsernameOrEmailWithEmail()
     {
-        $manager            = $this->userManager;
+        $manager            = $this->userService;
         $storage            = $this->userStorage;
         $emailNormalizer    = $this->emailNormalizer;
         $user               = $this->getMockForNamedUserInterface();

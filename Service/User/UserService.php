@@ -8,16 +8,18 @@
  * file that was distributed with this source code.
  */
 
-namespace LitGroup\Bundle\UserBundle\Model\User;
+namespace LitGroup\Bundle\UserBundle\Service\User;
+
+use LitGroup\Bundle\UserBundle\Model\User\UserInterface;
 use LitGroup\Bundle\UserBundle\Storage\UserStorageInterface;
 use LitGroup\Bundle\UserBundle\Util\Normalizer\EmailNormalizerInterface;
 
 /**
- * UserManager
+ * UserService
  *
  * @author Roman Shamritskiy <roman@litgroup.ru>
  */
-class UserManager implements UserManagerInterface
+class UserService implements UserServiceInterface
 {
     /**
      * FQN of the user's class.

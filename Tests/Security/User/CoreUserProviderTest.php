@@ -11,10 +11,6 @@
 namespace LitGroup\Bundle\UserBundle\Tests\Security\User;
 
 
-use LitGroup\Bundle\UserBundle\Model\User\UserManagerInterface;
-use LitGroup\Bundle\UserBundle\Security\User\CoreUserProvider;
-use LitGroup\Bundle\UserBundle\Tests\TestCase;
-
 class CoreUserProviderTest extends UserProviderTestCase
 {
 
@@ -25,7 +21,7 @@ class CoreUserProviderTest extends UserProviderTestCase
             $this
                 ->getMockBuilder('LitGroup\Bundle\UserBundle\Security\User\CoreUserProvider')
                 ->enableOriginalConstructor()
-                ->setConstructorArgs([$this->userManager])
+                ->setConstructorArgs([$this->userService])
                 ->getMockForAbstractClass()
         ;
     }
@@ -48,7 +44,7 @@ class CoreUserProviderTest extends UserProviderTestCase
     public function testSupportsClass($supportedClass, $class, $expected)
     {
         $this
-            ->userManager
+            ->userService
             ->expects($this->any())
             ->method('getUserClass')
             ->will($this->returnValue($supportedClass))
@@ -88,7 +84,7 @@ class CoreUserProviderTest extends UserProviderTestCase
 
     public function testRefreshUserSuccess()
     {
-        $manager  = $this->userManager;
+        $manager  = $this->userService;
         $provider = $this->userProvider;
         $user     = $this->getMockForUserInterface();
 
@@ -135,7 +131,7 @@ class CoreUserProviderTest extends UserProviderTestCase
      */
     public function testRefreshUserFailure($supportedClass, $user)
     {
-        $manager  = $this->userManager;
+        $manager  = $this->userService;
         $provider = $this->userProvider;
 
         $manager

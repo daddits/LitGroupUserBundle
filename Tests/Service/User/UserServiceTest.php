@@ -8,20 +8,19 @@
  * file that was distributed with this source code.
  */
 
-namespace LitGroup\Bundle\UserBundle\Tests\Model\User;
+namespace LitGroup\Bundle\UserBundle\Tests\Service\User;
 
-
-use LitGroup\Bundle\UserBundle\Model\User\UserManager;
+use LitGroup\Bundle\UserBundle\Service\User\UserService;
 use LitGroup\Bundle\UserBundle\Storage\UserStorageInterface;
 use LitGroup\Bundle\UserBundle\Tests\TestCase;
 use LitGroup\Bundle\UserBundle\Util\Normalizer\EmailNormalizerInterface;
 
-class UserManagerTest extends TestCase
+class UserServiceTest extends TestCase
 {
     /**
-     * @var UserManager
+     * @var UserService
      */
-    protected $userManager;
+    protected $userService;
 
     /**
      * @var UserStorageInterface
@@ -45,12 +44,12 @@ class UserManagerTest extends TestCase
         $this->userClass       = $this->getMockClass('LitGroup\Bundle\UserBundle\Model\User\UserInterface');
         $this->userStorage     = $this->getMockForAbstractClass('LitGroup\Bundle\UserBundle\Storage\UserStorageInterface');
         $this->emailNormalizer = $this->getMockForAbstractClass('LitGroup\Bundle\UserBundle\Util\Normalizer\EmailNormalizerInterface');
-        $this->userManager = new UserManager($this->userStorage, $this->userClass, $this->emailNormalizer);
+        $this->userService = new UserService($this->userStorage, $this->userClass, $this->emailNormalizer);
     }
 
     protected function tearDown()
     {
-        $this->userManager     = null;
+        $this->userService     = null;
         $this->userClass       = null;
         $this->userStorage     = null;
         $this->emailNormalizer = null;
@@ -59,20 +58,20 @@ class UserManagerTest extends TestCase
 
     public function testGetUserClass()
     {
-        $manager = $this->userManager;
+        $manager = $this->userService;
         $this->assertSame($this->userClass, $manager->getUserClass());
     }
 
     public function testCreateUser()
     {
-        $manager = $this->userManager;
+        $manager = $this->userService;
         $this->assertInstanceOf($this->userClass, $manager->createUser());
     }
 
     public function testSaveUser()
     {
         $manager = $this
-            ->getMockBuilder('LitGroup\Bundle\UserBundle\Model\User\UserManager')
+            ->getMockBuilder('LitGroup\Bundle\UserBundle\Service\User\UserService')
             ->enableOriginalConstructor()
             ->setConstructorArgs([$this->userStorage, $this->userClass, $this->emailNormalizer])
             ->setMethods(['updateCanonicalFields'])
@@ -97,7 +96,7 @@ class UserManagerTest extends TestCase
 
     public function testDeleteUser()
     {
-        $manager = $this->userManager;
+        $manager = $this->userService;
         $storage = $this->userStorage;
         $user    = $this->getMockForUserInterface();
 
@@ -112,7 +111,7 @@ class UserManagerTest extends TestCase
 
     public function testFindUserById()
     {
-        $manager = $this->userManager;
+        $manager = $this->userService;
         $storage = $this->userStorage;
         $user    = $this->getMockForUserInterface();
 
@@ -134,7 +133,7 @@ class UserManagerTest extends TestCase
 
     public function testFindUserByEmail()
     {
-        $manager    = $this->userManager;
+        $manager    = $this->userService;
         $storage    = $this->userStorage;
         $user       = $this->getMockForUserInterface();
         $normalizer = $this->emailNormalizer;
@@ -163,7 +162,7 @@ class UserManagerTest extends TestCase
 
     public function testFindUserBy()
     {
-        $manager  = $this->userManager;
+        $manager  = $this->userService;
         $storage  = $this->userStorage;
         $user     = $this->getMockForUserInterface();
         $criteria = ['emailCanonical' => 'email@example.com'];
@@ -186,7 +185,7 @@ class UserManagerTest extends TestCase
 
     public function testUpdateCanonicalFields()
     {
-        $manager         = $this->userManager;
+        $manager         = $this->userService;
         $emailNormalizer = $this->emailNormalizer;
         $user            = $this->getMockForUserInterface();
 

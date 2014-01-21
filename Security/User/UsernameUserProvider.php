@@ -10,6 +10,8 @@
 
 namespace LitGroup\Bundle\UserBundle\Security\User;
 
+use LitGroup\Bundle\UserBundle\Service\User\NamedUserServiceInterface;
+
 
 /**
  * UsernameUserProvider.
@@ -21,6 +23,14 @@ namespace LitGroup\Bundle\UserBundle\Security\User;
 class UsernameUserProvider extends CoreUserProvider
 {
     /**
+     * @param NamedUserServiceInterface $userService
+     */
+    public function __construct(NamedUserServiceInterface $userService)
+    {
+        parent::__construct($userService);
+    }
+
+    /**
      * @inheritDoc
      */
     protected function doLoadUserByUsername($username)
@@ -28,4 +38,4 @@ class UsernameUserProvider extends CoreUserProvider
         return $this->getUserManager()->findUserByUsernameOrEmail($username);
     }
 
-} 
+}

@@ -8,16 +8,18 @@
  * file that was distributed with this source code.
  */
 
-namespace LitGroup\Bundle\UserBundle\Model\User;
+namespace LitGroup\Bundle\UserBundle\Service\User;
+
+use LitGroup\Bundle\UserBundle\Model\User\UserInterface;
 
 /**
- * UserManagerInterface
+ * UserServiceInterface
  *
  * @author Roman Shamritskiy <roman@litgroup.ru>
  *
  * @api
  */
-interface UserManagerInterface
+interface UserServiceInterface
 {
     /**
      * Creates empty user instance.

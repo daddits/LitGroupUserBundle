@@ -8,16 +8,18 @@
  * file that was distributed with this source code.
  */
 
-namespace LitGroup\Bundle\UserBundle\Model\User;
+namespace LitGroup\Bundle\UserBundle\Service\User;
+
+use LitGroup\Bundle\UserBundle\Model\User\NamedUserInterface;
 
 /**
- * NamedUserManagerInterface
+ * NamedUserServiceInterface
  *
  * @author Roman Shamritskiy <roman@litgroup.ru>
  *
  * @api
  */
-interface NamedUserManagerInterface extends UserManagerInterface
+interface NamedUserServiceInterface extends UserServiceInterface
 {
     /**
      * Finds user by username.

@@ -11,7 +11,7 @@
 namespace LitGroup\Bundle\UserBundle\Tests\Security\User;
 
 use LitGroup\Bundle\UserBundle\Tests\TestCase;
-use LitGroup\Bundle\UserBundle\Model\User\UserManagerInterface;
+use LitGroup\Bundle\UserBundle\Service\User\UserServiceInterface;
 use LitGroup\Bundle\UserBundle\Security\User\CoreUserProvider;
 
 /**
@@ -22,9 +22,9 @@ use LitGroup\Bundle\UserBundle\Security\User\CoreUserProvider;
 abstract class UserProviderTestCase extends TestCase
 {
     /**
-     * @var UserManagerInterface
+     * @var UserServiceInterface
      */
-    protected $userManager;
+    protected $userService;
 
     /**
      * @var CoreUserProvider
@@ -35,12 +35,12 @@ abstract class UserProviderTestCase extends TestCase
     protected function setUp()
     {
         parent::setUp();
-        $this->userManager  = $this->getMockForAbstractClass('LitGroup\Bundle\UserBundle\Model\User\UserManagerInterface');
+        $this->userService  = $this->getMockForAbstractClass('LitGroup\Bundle\UserBundle\Service\User\UserServiceInterface');
     }
 
     protected function tearDown()
     {
-        $this->userManager  = null;
+        $this->userService  = null;
         $this->userProvider = null;
         parent::tearDown();
     }

@@ -18,14 +18,14 @@ class EmailUserProviderTest extends UserProviderTestCase
     protected function setUp()
     {
         parent::setUp();
-        $this->userProvider = new EmailUserProvider($this->userManager);
+        $this->userProvider = new EmailUserProvider($this->userService);
     }
 
     public function testLoadUserByUserName()
     {
         $user     = $this->getMockForUserInterface();
         $provider = $this->userProvider;
-        $manager  = $this->userManager;
+        $manager  = $this->userService;
 
         $manager
             ->expects($this->once())
