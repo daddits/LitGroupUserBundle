@@ -93,7 +93,7 @@ abstract class CoreUserProvider implements UserProviderInterface
             throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', get_class($user)));
         }
 
-        return $this->getUserManager()->findUserById($user->getId());
+        return $this->getUserService()->findUserById($user->getId());
     }
 
     /**
@@ -105,17 +105,17 @@ abstract class CoreUserProvider implements UserProviderInterface
      */
     public function supportsClass($class)
     {
-        $supportedClass = $this->getUserManager()->getUserClass();
+        $supportedClass = $this->getUserService()->getUserClass();
 
         return $class === $supportedClass || is_subclass_of($class, $supportedClass);
     }
 
     /**
-     * Returns UserManager instance.
+     * Returns User's Service.
      *
      * @return UserServiceInterface
      */
-    protected function getUserManager()
+    protected function getUserService()
     {
         return $this->userService;
     }

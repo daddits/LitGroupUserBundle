@@ -35,7 +35,7 @@ class UsernameUserProvider extends CoreUserProvider
      */
     protected function doLoadUserByUsername($username)
     {
-        return $this->getUserManager()->findUserByUsernameOrEmail($username);
+        return $this->getUserService()->findUserByUsernameOrEmail($username);
     }
 
 }

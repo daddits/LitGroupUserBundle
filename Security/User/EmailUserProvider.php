@@ -25,7 +25,7 @@ class EmailUserProvider extends CoreUserProvider
      */
     protected function doLoadUserByUsername($username)
     {
-        return $this->getUserManager()->findUserByEmail($username);
+        return $this->getUserService()->findUserByEmail($username);
     }
 
 } 
