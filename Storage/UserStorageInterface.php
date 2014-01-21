@@ -9,10 +9,13 @@
  */
 
 namespace LitGroup\Bundle\UserBundle\Storage;
+
 use LitGroup\Bundle\UserBundle\Model\User\UserInterface;
 
 /**
  * UserStorageInterface
+ *
+ * User's model DAO interface.
  *
  * @author Roman Shamritskiy <roman@litgroup.ru>
  */
